@@ -1,7 +1,7 @@
 export default function Signup() {
     return (
       <div className="flex h-screen items-center justify-center bg-gray-100">
-        <div className="flex w-full p-5 rounded-lg bg-white shadow-lg overflow-hidden">
+        <div className="flex w-full rounded-lg bg-white shadow-lg overflow-hidden">
           {/* Left Side (Image & Text) */}
           <div className="w-1/2 relative hidden lg:block">
             <img

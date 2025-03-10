@@ -1,7 +1,7 @@
 export default function SpecialOffer() {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="relative w-full h-full flex overflow-hidden">
+      <div className="flex items-center justify-center h-screen bg-white">
+        <div className="relative w-full h-[620px] flex overflow-hidden">
           {/* Left Side */}
           <div className="w-[45%] bg-yellow-600 flex items-center justify-center relative">
             <h1 className="text-3xl font-bold text-black z-10">

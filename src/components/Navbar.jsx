@@ -5,7 +5,7 @@ const Navbar = () => {
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center">
       <nav className="flex w-full screen-max-width items-center">
         {/* Replaced Apple Logo with BeeBark Text */}
-        <div className="text-2xl font-bold text-white">
+        <div className="text-2xl font-bold text-black">
           BeeBark
         </div>
 

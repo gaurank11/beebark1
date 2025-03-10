@@ -24,10 +24,10 @@ const App = () => {
       <ScrollingHighlight />
       <ScrollingParagraph />
       <SpecialOffer />
-      <Highlights />
+      {/* <Highlights />
       <Model />
       <Features />
-      <HowItWorks />
+      <HowItWorks /> */}
       <Signup />
       <Footer />
     </main>

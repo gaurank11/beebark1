@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { XMarkIcon, Bars3Icon, BellIcon } from "@heroicons/react/24/outline";
-import { LogIn, UserPlus, Instagram, Twitter, Facebook } from "lucide-react";
+import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
+import { Instagram, Twitter, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -13,44 +13,24 @@ export default function Header() {
     <>
       {/* Header Section */}
       <header className="fixed top-0 left-0 w-full p-5 flex justify-between items-center z-50 bg-white shadow-md">
-        <div className="flex-shrink-0">
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            <img src="/bbark.png" alt="Logo" className="h-12 w-auto" />
+        {/* Logo and Name */}
+        <div className="flex items-center space-x-3">
+          <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center">
+            <img src="/bbark.png" alt="BeeBark Logo" className="h-12 w-auto" />
+            <span className="text-2xl font-bold text-black">BeeBark</span>
           </Link>
         </div>
 
-        {/* Right-side Icons and Menu */}
-        <div className="flex items-center space-x-5">
-          <div className="hidden md:flex items-center space-x-5">
-            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer font-poppins">
-              <LogIn className="w-5 h-5" />
-              <span>
-                <Link to="/login" onClick={() => setMenuOpen(false)} className="hover:text-gray-700">
-                  Login
-                </Link>
-              </span>
-            </div>
-            <div className="flex items-center text-black font-bold space-x-2 cursor-pointer md:border-2 md:border-black md:px-4 md:py-2 md:rounded-lg font-poppins">
-              <UserPlus className="w-5 h-5" />
-              <span>
-                <Link to="/join" onClick={() => setMenuOpen(false)} className="hover:text-gray-700">
-                  Join as a Pro
-                </Link>
-              </span>
-            </div>
-          </div>
-
-          {/* Menu Icon */}
-          <div
-            className="flex items-center justify-center w-12 h-12 rounded-full cursor-pointer border-2 border-black bg-black"
-            onClick={toggleMenu}
-          >
-            {menuOpen ? (
-              <XMarkIcon className="w-8 h-8 text-white" />
-            ) : (
-              <Bars3Icon className="w-8 h-8 text-white" />
-            )}
-          </div>
+        {/* Menu Icon */}
+        <div
+          className="flex items-center justify-center w-12 h-12 rounded-full cursor-pointer border-2 border-black bg-black"
+          onClick={toggleMenu}
+        >
+          {menuOpen ? (
+            <XMarkIcon className="w-8 h-8 text-white" />
+          ) : (
+            <Bars3Icon className="w-8 h-8 text-white" />
+          )}
         </div>
       </header>
 
