@@ -25,7 +25,7 @@ const Hero1 = () => {
     opacity: 1,
     transform: "translateX(0px)",
     from: { opacity: 0, transform: "translateX(20px)" },
-    delay: 3000,
+    delay: 2100,
     config: { tension: 100, friction: 25 },
   });
 
@@ -34,7 +34,7 @@ const Hero1 = () => {
     opacity: 1,
     transform: "translateX(0px)",
     from: { opacity: 0, transform: "translateX(20px)" },
-    delay: 4000,
+    delay: 2100,
     config: { tension: 100, friction: 25 },
   });
 
@@ -48,7 +48,7 @@ const Hero1 = () => {
 
     setTimeout(() => {
       setLeftLogoSpring({
-        transform: "translateX(-220px)",
+        transform: "translateX(-440px)",
       });
     }, 2000);
   }, [setRightLogoSpring, setLeftLogoSpring]);
@@ -63,20 +63,20 @@ const Hero1 = () => {
         <animated.img
           src="bbark.png"
           alt="Left Logo"
-          className="relative z-10 w-[100%] max-w-[300px]"
+          className="relative z-10 w-[80%] max-w-[300px]"
           style={leftLogoSpring}
         />
         {/* Right logo (moves out slowly) */}
         <animated.img
           src="bbark.png"
           alt="Right Logo"
-          className="absolute z-10 w-[100%] max-w-[300px]"
+          className="absolute z-10 w-[80%] max-w-[300px]"
           style={rightLogoSpring}
         />
       </div>
 
       {/* Animated Text "BeeBark" */}
-      <div className="absolute left-[45%] top-[30%] flex gap-2 text-[7vw] font-bold text-black z-20">
+      <div className="absolute center top-[35%] flex gap-2 text-[10vw] font-extrabold text-herocolor z-20">
         {letterTrail.map((props, index) => (
           <animated.span key={index} style={props}>
             {letters[index]}
@@ -85,7 +85,7 @@ const Hero1 = () => {
       </div>
 
       {/* Animated Tagline */}
-      <div className="absolute left-[45%] top-[50%] flex gap-2 text-[2vw] font-medium text-gray-600 z-20">
+      <div className="absolute center top-[60%] flex gap-2 text-[3vw] font-medium text-gray-600 z-20">
         {taglineTrail.map((props, index) => (
           <animated.span key={index} style={props}>
             {tagline[index]}
