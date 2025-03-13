@@ -1,11 +1,26 @@
-import React, { useEffect, useRef,  useState  } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSpring, useTrail, animated } from "@react-spring/web";
 
 const Hero1 = () => {
   const canvasRef = useRef(null);
   const letters = "BeeBark".split("");
   const tagline = "Strongest Web, Built For Builders".split(" ");
+
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Detect screen resize and update `isMobile`
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Set initial value
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // Left logo animation (initial state)
   const [leftLogoSpring, setLeftLogoSpring] = useSpring(() => ({
@@ -21,37 +36,38 @@ const Hero1 = () => {
     config: { tension: 50, friction: 30 },
   }));
 
-  // Letter animation (revealed gradually)
+  // Letter animation (gradually revealed)
   const letterTrail = useTrail(letters.length, {
     opacity: 1,
     transform: "translateX(0px)",
     from: { opacity: 0, transform: "translateX(20px)" },
-    delay: 2100,
+    delay: 2500, // Delay before letters appear
     config: { tension: 100, friction: 25 },
   });
 
-  // Tagline animation (revealed gradually)
+  // Tagline animation (gradually revealed)
   const taglineTrail = useTrail(tagline.length, {
     opacity: 1,
     transform: "translateX(0px)",
     from: { opacity: 0, transform: "translateX(20px)" },
-    delay: 2100,
+    delay: 3000, // Delay before tagline appears
     config: { tension: 100, friction: 25 },
   });
 
   useEffect(() => {
     setTimeout(() => {
       setRightLogoSpring({
-        transform: isMobile ? "translateX(400px)" : "translateX(1000px)", // Mobile & Laptop
+        transform: isMobile ? "translateX(400px)" : "translateX(1000px)", // Different for mobile & laptop
       });
     }, 2000);
 
     setTimeout(() => {
       setLeftLogoSpring({
-        transform: isMobile ? "translateX(-165px)" : "translateX(-380px)", // Mobile & Laptop
+        transform: isMobile ? "translateX(-165px)" : "translateX(-380px)", // Different for mobile & laptop
       });
     }, 2000);
   }, [setRightLogoSpring, setLeftLogoSpring, isMobile]);
+
   return (
     <section className="w-full h-[450px] md:h-screen bg-white flex items-center justify-center relative overflow-hidden">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
@@ -62,7 +78,7 @@ const Hero1 = () => {
         <animated.img
           src="bbark.png"
           alt="Left Logo"
-          className="relative z-10 w-[40%] md:w-[80%] "
+          className="relative z-10 w-[40%] md:w-[80%]"
           style={leftLogoSpring}
         />
         {/* Right logo (moves out slowly) */}
@@ -75,7 +91,7 @@ const Hero1 = () => {
       </div>
 
       {/* Animated Text "BeeBark" */}
-      <div className="absolute left-[25%] md:left-[35%]  top-[43%] md:top-[35%] flex gap-2 text-[13vw] md:text-[10vw] font-extrabold text-herocolor z-20">
+      <div className="absolute left-[25%] md:left-[35%] top-[43%] md:top-[35%] flex gap-2 text-[13vw] md:text-[10vw] font-extrabold text-herocolor z-20">
         {letterTrail.map((props, index) => (
           <animated.span key={index} style={props}>
             {letters[index]}
