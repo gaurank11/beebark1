@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef,  useState  } from "react";
 import { useSpring, useTrail, animated } from "@react-spring/web";
 
 const Hero1 = () => {
   const canvasRef = useRef(null);
   const letters = "BeeBark".split("");
   const tagline = "Strongest Web, Built For Builders".split(" ");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   // Left logo animation (initial state)
   const [leftLogoSpring, setLeftLogoSpring] = useSpring(() => ({
@@ -41,42 +42,40 @@ const Hero1 = () => {
   useEffect(() => {
     setTimeout(() => {
       setRightLogoSpring({
-        transform: "translateX(1000px)",
- 
+        transform: isMobile ? "translateX(400px)" : "translateX(1000px)", // Mobile & Laptop
       });
     }, 2000);
 
     setTimeout(() => {
       setLeftLogoSpring({
-        transform: "translateX(-440px)",
+        transform: isMobile ? "translateX(-165px)" : "translateX(-380px)", // Mobile & Laptop
       });
     }, 2000);
-  }, [setRightLogoSpring, setLeftLogoSpring]);
-
+  }, [setRightLogoSpring, setLeftLogoSpring, isMobile]);
   return (
-    <section className="w-full h-screen bg-white flex items-center justify-center relative overflow-hidden">
+    <section className="w-full h-[50vh] md:h-screen bg-white flex items-center justify-center relative overflow-hidden">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
 
       {/* Logos */}
-      <div className="absolute flex items-center">
+      <div className="absolute flex items-center justify-center">
         {/* Left logo (shifts slightly left after 2 sec) */}
         <animated.img
           src="bbark.png"
           alt="Left Logo"
-          className="relative z-10 w-[80%] max-w-[300px]"
+          className="relative z-10 w-[40%] md:w-[80%] "
           style={leftLogoSpring}
         />
         {/* Right logo (moves out slowly) */}
         <animated.img
           src="bbark.png"
           alt="Right Logo"
-          className="absolute z-10 w-[80%] max-w-[300px]"
+          className="absolute z-10 w-[40%] md:w-[80%]"
           style={rightLogoSpring}
         />
       </div>
 
       {/* Animated Text "BeeBark" */}
-      <div className="absolute center top-[35%] flex gap-2 text-[10vw] font-extrabold text-herocolor z-20">
+      <div className="absolute left-[25%] md:left-[35%]  top-[43%] md:top-[35%] flex gap-2 text-[13vw] md:text-[10vw] font-extrabold text-herocolor z-20">
         {letterTrail.map((props, index) => (
           <animated.span key={index} style={props}>
             {letters[index]}
@@ -85,7 +84,7 @@ const Hero1 = () => {
       </div>
 
       {/* Animated Tagline */}
-      <div className="absolute center top-[60%] flex gap-2 text-[3vw] font-medium text-gray-600 z-20">
+      <div className="absolute left-[25%] md:left-[35%] top-[58%] md:top-[60%] flex gap-2 text-[4vw] md:text-[3vw] font-medium text-gray-600 z-20">
         {taglineTrail.map((props, index) => (
           <animated.span key={index} style={props}>
             {tagline[index]}

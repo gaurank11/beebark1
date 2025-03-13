@@ -20,7 +20,7 @@ const App = () => {
     <main className="bg-white">
       <Header />
       <Hero1 />
-      <Hero />
+      {/* <Hero /> */}
       <ScrollingHighlight />
       <ScrollingParagraph />
       <SpecialOffer />
