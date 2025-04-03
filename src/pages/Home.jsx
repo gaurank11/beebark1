@@ -8,11 +8,13 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Hero1 from '../components/Hero1';
 import Hero2 from '../components/Hero2';
-import ScrollingParagraph from '../components/ScrollingParagraph';
+import Scrolling from '../components/ScrollingParagraph';
 import SpecialOffer from '../components/SpecialOffer';
 import WelcomeBanner from '../components/Welcome';
 import ScrollingHighlight from '../components/Welcome';
 import JoinUs from '../components/joinus';
+import ReferralSection from '../components/refer';
+import ExclusiveOffer from '../components/exclusiveoffer';
 
 const Home = () => {
   return (
@@ -21,13 +23,15 @@ const Home = () => {
       <Hero1 />
       {/* <Hero /> */}
       <ScrollingHighlight />
-      <ScrollingParagraph />
+      <Scrolling />
       <SpecialOffer />
       {/* <Highlights />
       <Model />
       <Features />
       <HowItWorks /> */}
-      <JoinUs />
+      <ExclusiveOffer />
+        <ReferralSection />
+    
       
       <Footer />
     </main>

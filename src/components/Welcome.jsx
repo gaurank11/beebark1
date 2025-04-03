@@ -2,20 +2,59 @@ import React from "react";
 
 const ScrollingHighlight = () => {
   return (
-    <div className="relative w-full h-48 bg-[#221912] overflow-hidden flex justify-center items-center">
-      <div className="absolute whitespace-nowrap flex animate-scroll">
-        {Array(10)
-          .fill("WELCOME TO THE FUTURE")
-          .map((text, index) => (
-            <span
-              key={index}
-              className={`text-2xl font-bold mx-4 ${
-                index === 4 ? "text-white" : "text-white opacity-40"
-              }`}
-            >
-              {text}
-            </span>
-          ))}
+    <div className="relative w-full h-48 bg-herocolor overflow-hidden flex flex-col justify-center items-center gap-4">
+      {/* First Line: Right to Left */}
+      <div className="w-full overflow-hidden">
+        <div className="flex whitespace-nowrap animate-scroll-right-to-left">
+          {Array(10)
+            .fill("WELCOME TO THE FUTURE")
+            .map((text, index) => (
+              <span
+                key={index}
+                className={`text-2xl font-bold mx-4 ${
+                  index === 4 ? "text-white" : "text-white opacity-40"
+                }`}
+              >
+                {text}
+              </span>
+            ))}
+        </div>
+      </div>
+
+      {/* Second Line: Left to Right */}
+      <div className="w-full overflow-hidden">
+        <div className="flex whitespace-nowrap animate-scroll-left-to-right">
+          {Array(10)
+            .fill("WELCOME TO THE FUTURE")
+            .map((text, index) => (
+              <span
+                key={index}
+                className={`text-2xl font-bold mx-4 ${
+                  index === 4 ? "text-white" : "text-white opacity-40"
+                }`}
+              >
+                {text}
+              </span>
+            ))}
+        </div>
+      </div>
+
+      {/* Third Line: Right to Left */}
+      <div className="w-full overflow-hidden">
+        <div className="flex whitespace-nowrap animate-scroll-right-to-left">
+          {Array(10)
+            .fill("WELCOME TO THE FUTURE")
+            .map((text, index) => (
+              <span
+                key={index}
+                className={`text-2xl font-bold mx-4 ${
+                  index === 4 ? "text-white" : "text-white opacity-40"
+                }`}
+              >
+                {text}
+              </span>
+            ))}
+        </div>
       </div>
     </div>
   );
