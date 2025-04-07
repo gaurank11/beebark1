@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -44,7 +48,7 @@ const services = [
     image: "/image7.jpeg",
   },
   {
-    title: "Industry Events &  Growth Opportunities",
+    title: "Industry Events & Growth Opportunities",
     description:
       "Industry events and growth opportunities provide platforms for networking, learning, and discovering new avenues for business development and market expansion",
     image: "/image8.jpeg",
@@ -61,17 +65,55 @@ const services = [
       "Ecommerce is the buying and selling of goods and services online, enabling businesses to reach a global audience and streamline transactions.",
     image: "/image10.jpeg",
   },
-  
 ];
 
 const Scrolling = () => {
+  const containerRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(1);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const totalScrollWidth = container.scrollWidth - window.innerWidth;
+
+    // Animate cards scroll
+    gsap.to(container, {
+      x: () => `-${totalScrollWidth}px`,
+      ease: "none",
+      scrollTrigger: {
+        trigger: wrapperRef.current,
+        start: "top top",
+        end: () => `+=${totalScrollWidth}`,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+          const progress = self.progress; // value from 0 to 1
+          const index = Math.round(progress * (services.length - 1)) + 1;
+          setCurrentIndex(index);
+        },
+      },
+    });
+
+    return () => ScrollTrigger.killAll();
+  }, []);
+
   return (
-    <div className="overflow-x-auto py-10 px-5">
-      <div className="flex space-x-6">
+    <section ref={wrapperRef} className="relative w-full h-screen overflow-hidden bg-gray-50">
+
+
+      {/* 🚀 Cards container */}
+      <div
+        ref={containerRef}
+        className="flex space-x-6 px-10 h-full items-center relative z-10"
+        style={{
+          width: `${services.length * 340}px`,
+        }}
+      >
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg rounded-lg p-5 w-96  flex-shrink-0"
+            className="w-[320px] flex-shrink-0 bg-white rounded-xl shadow-lg p-5"
           >
             <img
               src={service.image}
@@ -86,7 +128,7 @@ const Scrolling = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
