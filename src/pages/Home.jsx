@@ -6,7 +6,7 @@ import HowItWorks from '../components/HowItWorks';
 import Footer from '../components/Footer';
 
 import Header from '../components/Header';
-import Hero1 from '../components/Hero1';
+import Hero1 fimrom '../components/Hero1';
 import Hero2 from '../components/Hero2';
 import Scrolling from '../components/ScrollingParagraph';
 import SpecialOffer from '../components/SpecialOffer';
@@ -32,8 +32,7 @@ const Home = () => {
       <ExclusiveOffer />
         <ReferralSection />
     
-      
-      <Footer />
+    
     </main>
   )
 }
