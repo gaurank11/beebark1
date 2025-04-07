@@ -122,9 +122,7 @@ const Scrolling = () => {
             />
             <h3 className="text-xl font-bold mt-4">{service.title}</h3>
             <p className="text-gray-600 mt-2">{service.description}</p>
-            <a href="#" className="text-yellow-600 font-semibold mt-3 inline-block">
-              View Plans ➜
-            </a>
+            
           </div>
         ))}
       </div>
