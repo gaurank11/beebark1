@@ -113,7 +113,7 @@ const Scrolling = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="w-[320px] flex-shrink-0 bg-white rounded-xl shadow-lg p-5"
+            className="w-[320px] flex-shrink-0 bg-white rounded-xl shadow-lg p-5 border-4 border-yellow-500"
           >
             <img
               src={service.image}
