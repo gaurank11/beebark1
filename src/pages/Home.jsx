@@ -3,8 +3,6 @@ import Highlights from '../components/Highlights';
 import Model from '../components/Model';
 import Features from '../components/Features';
 import HowItWorks from '../components/HowItWorks';
-import Footer from '../components/Footer';
-
 import Header from '../components/Header';
 import Hero1 fimrom '../components/Hero1';
 import Hero2 from '../components/Hero2';
