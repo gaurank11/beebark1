@@ -14,7 +14,7 @@ const ScrollingHighlight = () => {
                 className={`text-2xl font-bold mx-4 ${
                   index === 4
                     ? "text-yellow-400 drop-shadow-[0_0_10px_#FFD700] animate-pulse"
-                    : "text-yellow-300 opacity-40"
+                    : "text-yellow-400 drop-shadow-[0_0_10px_#FFD700] animate-pulse"
                 }`}
               >
                 {text}
@@ -34,7 +34,7 @@ const ScrollingHighlight = () => {
                 className={`text-2xl font-bold mx-4 ${
                   index === 4
                     ? "text-yellow-400 drop-shadow-[0_0_10px_#FFD700] animate-pulse"
-                    : "text-yellow-300 opacity-40"
+                    : "text-yellow-400 drop-shadow-[0_0_10px_#FFD700] animate-pulse"
                 }`}
               >
                 {text}
@@ -54,7 +54,7 @@ const ScrollingHighlight = () => {
                 className={`text-2xl font-bold mx-4 ${
                   index === 4
                     ? "text-yellow-400 drop-shadow-[0_0_10px_#FFD700] animate-pulse"
-                    : "text-yellow-300 opacity-40"
+                    : "text-yellow-400 drop-shadow-[0_0_10px_#FFD700] animate-pulse"
                 }`}
               >
                 {text}
